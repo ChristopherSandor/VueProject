@@ -9,14 +9,37 @@
 </head>
 <body>
     
-    <h1>Hello, Vue :)</h1>
+    <h1>Hello, Vue >:)</h1>
 
     <div id="app">
-        <p>{{ title }} - {{ author }} - {{ age }}</p>
+
+        <div v-if="showBooks">
+            <p>{{ title }} - {{ author }} - {{ age }}</p>
+        </div>
+<!-- v-if removes the element from HTML -->
+        <button @click="toggleShowBooks">
+            <span v-if="showBooks">Hide Books</span>
+            <span v-else>Show Books</span>
+            <!-- <span v-if="!showBooks">Show Books</span> -->
+        </button>
+<!--  -->
+        <br>
+        <br>
+        <br>
+
+<!-- v-show changes the CSS and doesn't remove the HTML -->
+        <div v-show="showBooks">
+            currently showing Books
+        </div>
+<!--  -->
+
+        <br>
+        <br>
+        <br>
 
         <button v-on:click="age++">Increase age</button>
         <button v-on:click="age--">Decrease age</button>
-        <div @click="title = 'something else'">Change book title</div>
+        <div @click="changeTitle('Oathbringer')">Change book title</div>
 
     </div>
 
