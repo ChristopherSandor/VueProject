@@ -6,15 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello, Vue :)</title>
     <script src="https://unpkg.com/vue@3.0.2"></script>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
     
     <h1>Hello, Vue >:)</h1>
 
     <div id="app">
+        <!-- attribute bidning -->
+        <a v-bind:href="url" target="_blank" >The Best Website Ever!</a>
 
         <div v-if="showBooks">
-            <p>{{ title }} - {{ author }} - {{ age }}</p>
+            <ul>
+                <li v-for="book in books">
+                    <!-- for(book : books) -->
+                    <img src="" v-bind:alt="book.title">
+                    <h3> {{book.title}} </h3>
+                    <h3> {{book.author}} </h3>
+                </li>
+            </ul>
         </div>
 <!-- v-if removes the element from HTML -->
         <button @click="toggleShowBooks">
@@ -24,24 +34,24 @@
         </button>
 <!--  -->
         <br>
-        <br>
-        <br>
-
 <!-- v-show changes the CSS and doesn't remove the HTML -->
-        <div v-show="showBooks">
+        <!-- <div v-show="showBooks">
             currently showing Books
-        </div>
+        </div> -->
 <!--  -->
-
-        <br>
-        <br>
-        <br>
-
+<!-- 
         <button v-on:click="age++">Increase age</button>
         <button v-on:click="age--">Decrease age</button>
         <div @click="changeTitle('Oathbringer')">Change book title</div>
 
-    </div>
+        <br> -->
+
+<!-- mouse events -->
+        <!-- <div class="box" @mouseover="handleEvent($event, 5)">mouseover </div>
+        <div class="box" @mouseleave="handleEvent">mouseeave </div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMousemove">position - {{ x }} {{ y }}</div>
+    </div> -->
 
     <script src="main.js"></script>
 </body>
