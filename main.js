@@ -8,9 +8,9 @@ const app = Vue.createApp({
             // x: 0,
             // y: 0
             books: [
-                {title: 'name of the wind', author: 'patrick rothfuss'},
-                {title: 'the way of kings', author: 'brandon sanderson'},
-                {title: 'the final empire', author: 'patrick rothfuss'},
+                {title: 'name of the wind', author: 'patrick rothfuss', img:"img1.png", isFav: true},
+                {title: 'the way of kings', author: 'brandon sanderson', img:"img2.png", isFav: false},
+                {title: 'the final empire', author: 'patrick rothfuss', img:"img3.png", isFav: true},
             ],
             url: "http://www.csandor.com",
         }
@@ -32,6 +32,14 @@ const app = Vue.createApp({
         handleMousemove(e){
             this.x = e.offsetX;
             this.y = e.offsetY;
+        },
+        toggleFav(book){
+            book.isFav = !book.isFav;
+        }
+    },
+    computed: {
+        filteredBooks(){
+            return this.books.filter((book) => book.isFav)
         }
     }
 

@@ -6,3 +6,24 @@
     margin: 20px;
     display: inline-block;
 }
+.fav{
+    border: 2px solid aqua;
+    background-color: aqua;
+}
+p, h3, ul{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style-type: none;
+    background: white;
+    margin: 20px auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+body{
+    background-color: #ddd;
+}

@@ -13,14 +13,15 @@
     <h1>Hello, Vue >:)</h1>
 
     <div id="app">
+
         <!-- attribute bidning -->
         <a v-bind:href="url" target="_blank" >The Best Website Ever!</a>
 
         <div v-if="showBooks">
             <ul>
-                <li v-for="book in books">
+                <li v-for="book in filteredBooks" v-bind:class="{ fav: book.isFav }" @click="toggleFav(book)">
                     <!-- for(book : books) -->
-                    <img src="" v-bind:alt="book.title">
+                    <img v-bind:src="book.img" v-bind:alt="book.title">
                     <h3> {{book.title}} </h3>
                     <h3> {{book.author}} </h3>
                 </li>
